@@ -1,13 +1,22 @@
+.nav {
+  background-color: rgb(46, 44, 44);
+}
 .link {
     display: inline-block;
     text-decoration: none;
     padding: 12px;
+    margin-left: 20px;
     font-weight: 500;
-    color: #2a363b;
+    color: #f0f2f3;
     font-size: 18px;
   }
   
   .activeLink {
     composes: link;
-    color: #2196f3;
+    color: #98c1e2;
   }
+
+  .text {
+    text-transform: uppercase;
+  }
+

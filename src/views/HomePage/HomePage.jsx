@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import * as api from '../../services/movies-api';
 import MovieList from '../../components/MovieList/MovieList';
+import s from './HomePage.module.css';
 
 export default function HomePage() {
   const [movies, setMovies] = useState([]);
@@ -9,10 +10,11 @@ export default function HomePage() {
     api.fetchPopularMovies().then(data => setMovies(data));
   }, []);
 
+ 
   return (
     <>
-      <h1>HomePage</h1>
-      <MovieList movies={movies} />
+      <h1 className={s.title}>Trending today</h1>
+      {movies && <MovieList movies={movies} />}
     </>
   );
 }

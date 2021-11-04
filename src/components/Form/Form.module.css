@@ -1,0 +1,10 @@
+.form {
+    margin: 20px 20px 20px 192px
+}
+
+.button {
+    margin-left: 10px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 0 5px 3px;
+    transition: transform 250ms cubic-bezier(0.2, 0, 0.1, 0.5);
+}

@@ -5,13 +5,13 @@ import Loader from '../../helpers/Loader/Loader';
 import './App.css';
 
 function App() {
-  const HomePage = lazy(() => import('../../views/HomePage/HomePage'));
-  const MoviesPage = lazy(() => import('../../views/MoviesPage/MoviesPage'));
+  const HomePage = lazy(() => import('../../views/HomePage/HomePage' /* webpackChunkName: "home-view" */));
+  const MoviesPage = lazy(() => import('../../views/MoviesPage/MoviesPage' /* webpackChunkName: "movies-view" */));
 
   return (
     <div className="App">
       <Navigation />
-      <Suspense fallback={Loader}>
+      <Suspense fallback={<Loader/>}>
         <Switch>
           <Route exact path="/">
             <HomePage />

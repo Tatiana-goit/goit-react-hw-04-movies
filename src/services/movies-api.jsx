@@ -3,14 +3,23 @@
 import axios from 'axios';
 
 const API_KEY = 'c7505a6b0a7307c8877073e2c17e5b03';
+axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 
 export async function fetchPopularMovies() {
   try {
+    const response = await axios.get(`trending/movie/day?api_key=${API_KEY}`);
+    return response.data.results;
+  } catch (error) {
+    alert(error.message);
+  }
+}
+
+export async function featchMovieInSearch(searchQuery) {
+  try {
     const response = await axios.get(
-      `https://api.themoviedb.org/3/movie/550?api_key=${API_KEY}`,
+      `/search/movie?api_key=${API_KEY}&query=${searchQuery}`,
     );
-    console.log(response.data);
-    return response.data;
+    return response.data.results;
   } catch (error) {
     alert(error.message);
   }
