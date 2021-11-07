@@ -10,7 +10,7 @@ export default function Form({ onSearch }) {
   return (
     <>
       <form onSubmit={handleSearch} className={s.form}>
-        <input
+        <input className={s.input}
           type="text"
           name="filmName"
           autoComplete="on"

@@ -1,14 +1,21 @@
 .form {
-    margin: 20px 20px 20px 192px
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+.input {
+    width: 500px;
+    height: 36px;
 }
 
 .button {
-    margin-left: 10px;
+    width: 120px;
+    margin-left: 18px;
     border-radius: 4px;
-    box-shadow: rgba(0, 0, 0, 0.3) 0 0 5px 3px;
+    box-shadow: rgba(122, 121, 121, 0.5) 0 0 10px 7px;
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button:hover {
-    transform: scale(1.03);
+    transform: scale(1.1);
     cursor: pointer;
   }

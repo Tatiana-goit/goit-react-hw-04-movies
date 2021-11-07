@@ -1,5 +1,6 @@
 .nav {
-  background-color: rgb(46, 44, 44);
+  background-color: rgb(119, 115, 115);
+  height: 100px;
 }
 .link {
     display: inline-block;
@@ -7,13 +8,15 @@
     padding: 12px;
     margin-left: 20px;
     font-weight: 500;
-    color: #f0f2f3;
+    color: black;
     font-size: 18px;
   }
   
   .activeLink {
     composes: link;
-    color: #98c1e2;
+    color: rgb(235, 225, 225);
+    font-size: 22px;
+    ;
   }
 
   .text {

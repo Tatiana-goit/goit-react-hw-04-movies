@@ -20,6 +20,19 @@ export async function featchMovieInSearch(searchQuery) {
       `/search/movie?api_key=${API_KEY}&query=${searchQuery}`,
     );
     return response.data.results;
+  } 
+  catch (error) {
+    alert(error.message);
+    
+  }
+}
+
+export async function fetchMovieInfo(movieId) {
+  try {
+    const response = await axios.get(`/movie/${movieId}?api_key=${API_KEY}`);
+    // console.log('response :>> ', response.data);
+    // console.log(response.data);
+    return response.data;
   } catch (error) {
     alert(error.message);
   }

@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import MovieList from '../../components/MovieList/MovieList';
 import Form from '../../components/Form/Form';
 import * as api from '../../services/movies-api';
+import s from './MoviesPage.module.css';
 
 export default function MoviesPage() {
   const [movies, setMovies] = useState([]);
@@ -18,9 +19,9 @@ export default function MoviesPage() {
   };
 
   return (
-    <>
+    <div className={s.moviesPage}>
       <Form onSearch={handleFormSubmit} />
       {movies && <MovieList movies={movies} />}
-    </>
+    </div>
   );
 }

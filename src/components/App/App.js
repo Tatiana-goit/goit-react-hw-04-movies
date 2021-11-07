@@ -7,6 +7,7 @@ import './App.css';
 function App() {
   const HomePage = lazy(() => import('../../views/HomePage/HomePage' /* webpackChunkName: "home-view" */));
   const MoviesPage = lazy(() => import('../../views/MoviesPage/MoviesPage' /* webpackChunkName: "movies-view" */));
+  const MovieDetailsPage = lazy(() => import('../../views/MovieDetailsPage/MovieDetailsPage' /* webpackChunkName: "movies-page" */));
 
   return (
     <div className="App">
@@ -17,8 +18,12 @@ function App() {
             <HomePage />
           </Route>
 
-          <Route>
-            <MoviesPage path="/MoviesPage" />
+          <Route exact path="/movies">
+            <MoviesPage  />
+          </Route>
+
+          <Route path="/movies/:movieId">
+            <MovieDetailsPage />
           </Route>
         </Switch>
       </Suspense>
