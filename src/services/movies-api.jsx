@@ -35,6 +35,7 @@ export async function fetchMovieInfo(movieId) {
     return response.data;
   } catch (error) {
     alert(error.message);
+    alert('!!!!!!!!!!!!!!!!!!!');
   }
 }
 

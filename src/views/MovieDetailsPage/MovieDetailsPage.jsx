@@ -12,7 +12,7 @@ export default function MovieDetailsPage() {
     api.fetchMovieInfo(movieId).then(data => setMovieInfo(data));
   }, [movieId]);
 
-  console.log(movieInfo);
+  // console.log(movieInfo);
 
   return (
     <>

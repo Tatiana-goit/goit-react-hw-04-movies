@@ -3,12 +3,26 @@
     color: rgb(235, 231, 231);
 }
 
+.button {
+    width: 100px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-left: 18px;
+    margin-top: 20px;
+    border-radius: 4px;
+}
+
+.button:hover {
+    box-shadow: rgba(122, 121, 121, 0.5) 0 0 2px 2px;
+    cursor: pointer;
+  }
+
 .image {
     min-width: 300px;
     margin: 16px;
     border-radius: 5%;
     object-fit: cover;
-    box-shadow: rgba(122, 121, 121, 0.5) 0 0 10px 7px;
+    box-shadow: rgba(122, 121, 121, 0.5) 0 0 6px 4px;
 }
 
 .box_info {
