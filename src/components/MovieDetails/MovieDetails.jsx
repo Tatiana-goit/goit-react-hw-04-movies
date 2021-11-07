@@ -1,20 +1,36 @@
 import s from './MovieDetails.module.css';
-import { useHistory, useLocation } from 'react-router-dom';
+import { Suspense, lazy } from 'react';
+import {
+  useHistory,
+  useLocation,
+  useRouteMatch,
+  Switch,
+  Route,
+  NavLink,
+} from 'react-router-dom';
+import Loader from '../../helpers/Loader/Loader';
 // import noPoster from '../../images/no_poster.jpg';
 
 export default function MovieDetails({ movieInfo }) {
+  const Cast = lazy(() =>
+    import('../../views/Cast/Cast' /* webpackChunkName: "cast" */),
+  );
+  const Reviews = lazy(() =>
+    import('../../views/Reviews/Reviews' /* webpackChunkName: "reviews" */),
+  );
+
   const imgBasePath = 'http://image.tmdb.org/t/p/w185';
   const history = useHistory();
   const location = useLocation();
-  //   console.log(location);
+  const { path, url } = useRouteMatch();
+  console.log(movieInfo);
   console.log(movieInfo.genres);
-  //   console.log(movieInfo.poster_path);
 
   const handleClick = () => {
     history.push(location.state?.from?.location ?? '/');
   };
   return (
-    <>
+    <div className={s.conteiner}>
       <button type="button" onClick={handleClick} className={s.button}>
         Back
       </button>
@@ -26,7 +42,7 @@ export default function MovieDetails({ movieInfo }) {
             movieInfo.poster_path
               ? `${imgBasePath}${movieInfo.poster_path}`
               : console.log('Нет фото')
-            // ДОБЫВИТЬ ФОТО
+            // ДОБAВИТЬ ФОТО
           }
           alt={movieInfo.title}
         />
@@ -39,19 +55,54 @@ export default function MovieDetails({ movieInfo }) {
           <h3 className={s.title_info}>Overview</h3>
           <p className={s.text}>{movieInfo.overview}</p>
           <h3 className={s.title_info}>Genres</h3>
-          
 
           {/* <ul className={s.text}>
                     {movieInfo.genres.map(genre => (
                   <li key={genre.id}>{genre.name}</li>))}
                     </ul>  */}
 
-                  
           {/* <span className={s.text}>
               {movieInfo.genres.map(genre => genre.name).join(', ')}
             </span> */}
         </div>
       </div>
-    </>
+      <div className={s.additionalInformation}>
+        <h3 className={s.title_info}>Additional information</h3>
+
+        <nav>
+          <ul>
+            <li>
+              <NavLink
+                to={{
+                  pathname: `${url}/cast`,
+                  state: { from: location?.state?.from },
+                }}
+              >
+                {' '}
+                Cast
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to={{
+                  pathname: `${url}/reviews`,
+                  state: { from: location?.state?.from },
+                }}
+              >
+                {' '}
+                Reviews
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
+
+        <Suspense fallback={<Loader />}>
+          <Switch>
+            <Route exact path={`${path}/cast`} component={Cast} />
+            <Route exact path={`${path}/review`} component={Reviews} />
+          </Switch>
+        </Suspense>
+      </div>
+    </div>
   );
 }

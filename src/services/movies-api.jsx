@@ -20,42 +20,39 @@ export async function featchMovieInSearch(searchQuery) {
       `/search/movie?api_key=${API_KEY}&query=${searchQuery}`,
     );
     return response.data.results;
-  } 
-  catch (error) {
+  } catch (error) {
     alert(error.message);
-    
   }
 }
 
 export async function fetchMovieInfo(movieId) {
   try {
     const response = await axios.get(`/movie/${movieId}?api_key=${API_KEY}`);
-    // console.log('response :>> ', response.data);
-    // console.log(response.data);
     return response.data;
   } catch (error) {
     alert(error.message);
-    alert('!!!!!!!!!!!!!!!!!!!');
   }
 }
 
-// const BASE_URL = 'http://localhost:4004';
+export async function featchMovieCast(movieId) {
+  try {
+    const response = await axios.get(
+      `/movie/${movieId}/credits?api_key=${API_KEY}`,
+    );
+    return response.data.cast;
+  } catch (error) {
+    alert(error.message)
+  }
+}
 
-// async function fetchWithErrorHandling(url = '', config = {}) {
-//   const response = await fetch(url, config);
-//   return response.ok
-//     ? await response.json()
-//     : Promise.reject(new Error('Not found'));
-// }
-
-// export function fetchAuthors() {
-//   return fetchWithErrorHandling(`${BASE_URL}/authors?_embed=books`);
-// }
-
-// export function fetchBooks() {
-//   return fetchWithErrorHandling(`${BASE_URL}/books`);
-// }
-
-// export function fetchBookById(bookId) {
-//   return fetchWithErrorHandling(`${BASE_URL}/books/${bookId}?_expand=author`);
-// }
+export async function featchMovieRewiews(movieId) {
+  try {
+    const response = await axios.get(
+      `/movie/${movieId}/reviews?api_key=${API_KEY}`,
+    );
+    // console.log(response.data.results);
+    return response.data.results;
+  } catch (error) {
+    alert(error.message);
+  }
+}
