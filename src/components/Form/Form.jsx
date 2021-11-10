@@ -4,7 +4,6 @@ export default function Form({ onSearch }) {
   const handleSearch = e => {
     e.preventDefault();
     onSearch(e.target.elements.filmName.value);
-    // e.target.elements.filmName.value = '';
   };
 
   return (

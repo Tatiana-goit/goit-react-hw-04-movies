@@ -1,4 +1,4 @@
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import Navigation from '../Navigation/Navigation';
 import Loader from '../../helpers/Loader/Loader';
@@ -19,6 +19,10 @@ function App() {
     ),
   );
 
+  const NotFound = lazy(() =>
+    import('../../views/NotFound/NotFound' /* webpackChunkName: "NotFound" */),
+  );
+
   return (
     <div className="App">
       <Navigation />
@@ -27,8 +31,8 @@ function App() {
           <Route exact path="/" component={HomePage} />
           <Route exact path="/movies" component={MoviesPage} />
           <Route path="/movies/:movieId" component={MovieDetailsPage} />
-          {/* <Route component={NotFound} /> */}
-          {/* <Redirect to='/notFound'/> */}
+          <Route path="/notFound" component={NotFound} />
+          <Redirect to="/notFound" />
         </Switch>
       </Suspense>
     </div>
