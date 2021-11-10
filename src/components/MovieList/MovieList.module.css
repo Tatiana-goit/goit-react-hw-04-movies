@@ -8,6 +8,7 @@
   display: grid;
   grid-template-columns: 270px 270px 270px 270px;
   grid-gap: 40px;
+  padding-left: 0;
 }
 
 .image {
@@ -25,12 +26,12 @@
 }
 
 .title {
-    text-transform: uppercase;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 20px;
-    margin-bottom: 6px;
-    margin-top: 10px;
-    color: rgb(235, 225, 225);
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 6px;
+  margin-top: 10px;
+  color: rgb(235, 225, 225);
 }

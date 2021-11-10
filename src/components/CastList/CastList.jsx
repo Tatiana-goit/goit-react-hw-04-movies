@@ -1,3 +1,4 @@
+import defaultImg from '../../images/default-img.jpg'
 import s from './CastList.module.css';
 
 export default function CastList({casts}) {
@@ -13,7 +14,7 @@ export default function CastList({casts}) {
                 src={
                   profile_path
                     ? `${castBaseUrl}${profile_path}`
-                    : console.log('Фото')
+                    : defaultImg
                 }
                 alt={original_name}
               />

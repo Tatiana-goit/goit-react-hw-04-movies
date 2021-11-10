@@ -1,25 +1,28 @@
 .nav {
   background-color: rgb(119, 115, 115);
-  height: 100px;
+  height: 80px;
 }
 .link {
-    display: inline-block;
-    text-decoration: none;
-    padding: 12px;
-    margin-left: 20px;
-    font-weight: 500;
-    color: black;
-    font-size: 18px;
-  }
-  
-  .activeLink {
-    composes: link;
-    color: rgb(235, 225, 225);
-    font-size: 22px;
-    ;
-  }
+  display: inline-block;
+  text-decoration: none;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 20px;
+  font-weight: 500;
+  color: rgb(235, 225, 225);
+  font-size: 22px;
+}
 
-  .text {
-    text-transform: uppercase;
-  }
+.link:hover {
+  color: rgb(12, 12, 12);
+}
 
+.activeLink {
+  color: rgb(12, 12, 12);
+  border-bottom: 2px solid black;
+  cursor: auto;
+}
+
+.text {
+  text-transform: uppercase;
+}

@@ -1,0 +1,25 @@
+.reviews {
+    padding-bottom: 25px;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+}
+
+
+.author {
+    font-style: 20px;
+    line-height: 1.2;
+    font-weight: 600;
+
+    margin-bottom: 10px;
+}
+
+.error {
+    text-align: left;
+    font-size: 24px;
+    font-weight: 700;
+    color: rgb(164, 168, 168);
+}

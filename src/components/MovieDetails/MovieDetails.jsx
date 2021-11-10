@@ -1,7 +1,6 @@
 import s from './MovieDetails.module.css';
 import { Suspense, lazy } from 'react';
 import {
-  useHistory,
   useLocation,
   useRouteMatch,
   Switch,
@@ -9,87 +8,76 @@ import {
   NavLink,
 } from 'react-router-dom';
 import Loader from '../../helpers/Loader/Loader';
-// import noPoster from '../../images/no_poster.jpg';
+import Button from '../Button/Button';
+import noPoster from '../../images/noposter.png';
+
+const Cast = lazy(() =>
+  import('../../views/Cast/Cast' /* webpackChunkName: "cast" */),
+);
+const Reviews = lazy(() =>
+  import('../../views/Reviews/Reviews' /* webpackChunkName: "reviews" */),
+);
 
 export default function MovieDetails({ movieInfo }) {
-  const Cast = lazy(() =>
-    import('../../views/Cast/Cast' /* webpackChunkName: "cast" */),
-  );
-  const Reviews = lazy(() =>
-    import('../../views/Reviews/Reviews' /* webpackChunkName: "reviews" */),
-  );
-
   const imgBasePath = 'http://image.tmdb.org/t/p/w185';
-  const history = useHistory();
   const location = useLocation();
   const { path, url } = useRouteMatch();
-  console.log(movieInfo);
-  console.log(movieInfo.genres);
 
-  const handleClick = () => {
-    history.push(location.state?.from?.location ?? '/');
-  };
   return (
     <div className={s.conteiner}>
-      <button type="button" onClick={handleClick} className={s.button}>
-        Back
-      </button>
+      <Button />
       <div className={s.general}>
         <img
           className={s.image}
-          //   src={imgBasePath + movieInfo.poster_path}
           src={
             movieInfo.poster_path
               ? `${imgBasePath}${movieInfo.poster_path}`
-              : console.log('Нет фото')
-            // ДОБAВИТЬ ФОТО
+              : noPoster
           }
           alt={movieInfo.title}
         />
 
-        <div className={s.box_info}>
+        <div className={s.boxInfo}>
           <h2 className={s.title}>
             {movieInfo.original_title || movieInfo.name}
           </h2>
           <p className={s.text}>User Score: {movieInfo.vote_average * 10}%</p>
-          <h3 className={s.title_info}>Overview</h3>
+          <h3 className={s.titleInfo}>Overview</h3>
           <p className={s.text}>{movieInfo.overview}</p>
-          <h3 className={s.title_info}>Genres</h3>
-
-          {/* <ul className={s.text}>
-                    {movieInfo.genres.map(genre => (
-                  <li key={genre.id}>{genre.name}</li>))}
-                    </ul>  */}
-
-          {/* <span className={s.text}>
+          <h3 className={s.titleInfo}>Genres</h3>
+          {movieInfo.genres && (
+            <span className={s.text}>
               {movieInfo.genres.map(genre => genre.name).join(', ')}
-            </span> */}
+            </span>
+          )}
         </div>
       </div>
       <div className={s.additionalInformation}>
-        <h3 className={s.title_info}>Additional information</h3>
+        <h3 className={s.titleInformation}>Additional information</h3>
 
         <nav>
-          <ul>
-            <li>
+          <ul className={s.informationList}>
+            <li className={s.informationItem}>
               <NavLink
+                className={s.informationLink}
+                activeClassName={s.activeLink}
                 to={{
                   pathname: `${url}/cast`,
                   state: { from: location?.state?.from },
                 }}
               >
-                {' '}
                 Cast
               </NavLink>
             </li>
-            <li>
+            <li className={s.informationItem}>
               <NavLink
+                className={s.informationLink}
+                activeClassName={s.activeLink}
                 to={{
-                  pathname: `${url}/reviews`,
+                  pathname: `${url}/review`,
                   state: { from: location?.state?.from },
                 }}
               >
-                {' '}
                 Reviews
               </NavLink>
             </li>

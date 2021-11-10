@@ -1,5 +1,3 @@
-// c7505a6b0a7307c8877073e2c17e5b03
-// https://api.themoviedb.org/3/movie/550?api_key=c7505a6b0a7307c8877073e2c17e5b03
 import axios from 'axios';
 
 const API_KEY = 'c7505a6b0a7307c8877073e2c17e5b03';
@@ -41,7 +39,7 @@ export async function featchMovieCast(movieId) {
     );
     return response.data.cast;
   } catch (error) {
-    alert(error.message)
+    alert(error.message);
   }
 }
 
@@ -50,7 +48,6 @@ export async function featchMovieRewiews(movieId) {
     const response = await axios.get(
       `/movie/${movieId}/reviews?api_key=${API_KEY}`,
     );
-    // console.log(response.data.results);
     return response.data.results;
   } catch (error) {
     alert(error.message);

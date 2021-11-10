@@ -10,10 +10,9 @@ export default function HomePage() {
     api.fetchPopularMovies().then(data => setMovies(data));
   }, []);
 
- 
   return (
     <>
-      <h1 className={s.title}>Trending today</h1>
+      <h1 className={s.mainTitle}>Trending today</h1>
       {movies && <MovieList movies={movies} />}
     </>
   );
