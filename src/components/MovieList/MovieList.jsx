@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router';
 import noPoster from '../../images/noposter.png';
 import s from './MovieList.module.css';
+import PropTypes from 'prop-types';
 
 export default function MovieList({ movies }) {
   const location = useLocation();
@@ -19,8 +20,9 @@ export default function MovieList({ movies }) {
                     state: {
                       from: {
                         location,
-                        label: 'Go back to all movies',
+                        
                       },
+                      label: 'Go back to all movies',
                     },
                   }}
                 >
@@ -39,3 +41,14 @@ export default function MovieList({ movies }) {
     </>
   );
 }
+
+MovieList.protoTypes = {
+  movieInfo: PropTypes.arrayOf(
+  PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    poster_path: PropTypes.string,
+    title: PropTypes.string.isRequired,
+  }),
+),
+};
+

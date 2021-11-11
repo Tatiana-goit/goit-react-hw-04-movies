@@ -18,7 +18,6 @@ function App() {
       '../../views/MovieDetailsPage/MovieDetailsPage' /* webpackChunkName: "movies-page" */
     ),
   );
-
   const NotFound = lazy(() =>
     import('../../views/NotFound/NotFound' /* webpackChunkName: "NotFound" */),
   );

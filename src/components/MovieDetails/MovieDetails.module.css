@@ -1,42 +1,6 @@
 .conteiner {
   color: rgb(235, 231, 231);
 }
-
-.general {
-  display: flex;
-}
-
-.image {
-  width: 250px;
-  margin: 16px 16px 0;
-  border-radius: 5%;
-  object-fit: cover;
-  box-shadow: rgba(122, 121, 121, 0.5) 0 0 6px 4px;
-}
-
-.boxInfo {
-  margin-left: 40px;
-}
-
-.title {
-  margin-top: 0;
-  font-size: 36px;
-  line-height: 1.21;
-  font-weight: 700;
-  margin-bottom: 5px;
-}
-
-.titleInfo {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.text {
-  width: 800px;
-  margin-bottom: 20px;
-  color: rgb(184, 185, 185);
-}
-
 .additionalInformation {
   margin-left: 40px;
 }
